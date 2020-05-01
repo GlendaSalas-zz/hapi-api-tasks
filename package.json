@@ -1,0 +1,20 @@
+{
+  "name": "api-hapi",
+  "version": "1.0.0",
+  "description": "This is my first REST APi with Hapi.js",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Glenda Salas",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1",
+    "@hapi/inert": "^6.0.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
