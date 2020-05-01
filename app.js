@@ -46,6 +46,15 @@ const init = async () => {
             });
         }
     });
+    server.route({
+        method: 'POST',
+        path: '/tasks',
+        handler: async (request, h) => {
+            let task = new Tasks({ name: request.payload.text })
+            await task.save()
+            return h.redirect().location('tasks')
+        }
+    });
     await server.register(require('@hapi/inert'));
     server.route({
         method: 'GET',
