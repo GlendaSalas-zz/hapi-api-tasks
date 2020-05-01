@@ -1,16 +1,18 @@
 ---
-# Tasks REST API with Hapi.jS
+# Tasks REST API with Node.js & Hapi.js
 ---
 This will show how to set up a basic hapi server that displays a list of tasks.
 
 ## Stack
 |  stack | version|
 |:-------|:-------|
+|Node.js|12.15.0|
 |Hapi.js | 19.1.1 |
 |inert.js|  6.0.1 |
 |handlerbars| 4.5.3 |
 |mongoose| 5.9.11 |
 |path| 0.12.7 |
+
 
 ## Endpoints
 ### Read tasks [GET /tasks]
