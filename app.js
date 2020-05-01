@@ -4,7 +4,18 @@ const Hapi = require('@hapi/hapi')
 const Path = require('path');
 const Vision = require('@hapi/vision');
 const Handlebars = require('handlebars');
+const mongoose = require('mongoose')
+const { Tasks } = require('./models/tasks');
 
+mongoose.connect('mongodb://localhost/hapidb', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('Conection')
+});
 const init = async () => {
 
     const server = Hapi.server({
@@ -28,13 +39,10 @@ const init = async () => {
     server.route({
         method: 'GET',
         path: '/tasks',
-        handler: (request, h) => {
+        handler: async (request, h) => {
+            let tasks = await Tasks.find();
             return h.view('tasks', {
-                tasks: [
-                    { name: 'First task' },
-                    { name: 'Second task' },
-                    { name: 'Third task' },
-                ]
+                tasks,
             });
         }
     });
